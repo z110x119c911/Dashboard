@@ -8,15 +8,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>六角學院後台管理系統</title>
     <style>
         html{
             font-size: 14px;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).data('value')
+                }, {
+                    duration: 5000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(this.Counter.toFixed(0));
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -51,7 +64,7 @@
                         <div class="fa fa-money fa-3x text-secondary d-none d-sm-block"></div>
                         <div class="text-center w-100">
                             <div class="h5">今日營收</div>
-                            <div class="h3">193,000</div>
+                            <div class="h3"><span class="count" data-value="19300">19300</span></div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +75,7 @@
                         <div class="fa fa-users fa-3x text-secondary d-none d-sm-block"></div>
                         <div class="text-center w-100">
                             <div class="h5">會員增加</div>
-                            <div class="display-4">172</div>
+                            <div class="display-4"><span class="count" data-value="172">172</span></div>
                         </div>
                     </div>
                 </div>
@@ -73,7 +86,7 @@
                         <div class="fa fa-money fa-3x text-secondary d-none d-sm-block"></div>
                         <div class="text-center w-100">
                             <div class="h5">訂單數</div>
-                            <div class="display-4">320</div>
+                            <div class="display-4"><span class="count" data-value="320">320</span></div>
                         </div>
                     </div>
                 </div>
@@ -84,7 +97,7 @@
                         <div class="fa fa-money fa-3x text-secondary d-none d-sm-block"></div>
                         <div class="text-center w-100">
                             <div class="h5">待出貨數</div>
-                            <div class="display-4">120</div>
+                            <div class="display-4"><span class="count" data-value="120">120</span></div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +114,7 @@
                     <div class="card-body d-flex align-items-center">
                         <div class="text-center w-100">
                             <div class="h6">目前線上人數</div>
-                            <div class="display-2">99</div>
+                            <div class="display-2"><span class="count" data-value="99">99</span></div>
                             <div class="progress mt-5" style="height: 15px;">
                                 <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0"
                                     aria-valuemax="100">
